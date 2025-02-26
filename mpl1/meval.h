@@ -13,7 +13,7 @@
 
 namespace meval {
 
-    class meval_error : public std::exception {
+    class meval_error final : public std::exception {
     public:
         enum class error_type {
             unknown_token,
