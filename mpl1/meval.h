@@ -37,7 +37,6 @@ namespace meval {
     typedef std::map<std::string_view,func_unary> func_map;
     typedef std::map<std::string_view,std::pair<func_binary,uint32_t>> operator_map;
     typedef std::map<std::string_view,double> var_map;
-    //typedef std::map<std::string_view,uint32_t> priority_map;
 
     class math_expr {
     public:
@@ -54,15 +53,9 @@ namespace meval {
 
         static const char sym_var_start;// = "$";
         static const char sym_func_start;// = "@";
-        //const std::string_view sym_iota_start = "!";//not yet supported
 
         static const std::vector<char> m_reserved_symbols;
         static const std::pair<char,char> bracket;// = {"(",")"};
-        //static const std::vector<std::pair<char,char>> brackets;
-        /*{
-            m_priority_bracket, {"{","}"},{"[","]"}
-        };*/
-
 
         explicit math_expr(std::string_view expr,
             const std::shared_ptr<var_map>& vars,
@@ -88,26 +81,7 @@ namespace meval {
             space,
             reserved_symbol,
             user_symbol,
-            /*
-            open_bracket_round,
-            close_bracket_round,
-            open_bracket_square,
-            close_bracket_square,
-            open_bracket_curly,
-            close_bracket_curly,
-            */
         };
-        /*
-        typedef std::map<token_type, std::vector<token_element_type>> token_allowed_elem_types_map;
-        struct token_match_data {
-            token_element_type start;
-            bool include_start;
-            bool has_end;
-            token_element_type end;
-            bool include_end;
-            token_allowed_elem_types_map allowed_elem_types;
-        };
-    */
 
         struct token {
             token_type type;
@@ -124,20 +98,7 @@ namespace meval {
         std::stack<token> m_opr_stack;
         std::vector<token> m_postfix;
         uint32_t m_current_token_str_pos=0;
-        //std::vector<token_element_type> m_token_elem_str;
-        static bool initialized;
-        /*
-        static std::map<char,token_element_type> m_token_elem_map;
-        static token_allowed_elem_types_map m_token_allowed_elem_types_map;
-        static std::map<token_type, token_match_data> m_token_match_map;
 
-        static void init_token_elem_map();
-        static void init_token_elem_types_map();
-        static void init_token_match_map();
-        static bool is_allowed_token_elem(char, token_type);
-        */
-        //static token_element_type get_token_elem_type(char c);
-        //void make_token_elem_str();
         static void stack_move(std::stack<token>& stackA, std::stack<token>& stackB);
         void reset_token_str_pos();
         token get_full_token(token_type);

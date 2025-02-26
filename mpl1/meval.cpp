@@ -17,7 +17,6 @@ namespace meval {
     }
 
     // Implementation of math_expr
-    bool math_expr::initialized = false;
     const char math_expr::sym_var_start = '$';
     const char math_expr::sym_func_start = '@';
     const std::vector<char> math_expr::m_reserved_symbols = {
@@ -37,14 +36,6 @@ namespace meval {
           m_funcs(funcs),
           m_ops(ops),
           m_epsilon(epsilon) {
-        if (!initialized) {
-            //init_token_elem_map();
-            //init_token_elem_types_map();
-            //init_token_match_map();
-            initialized = true;
-        }
-        //make_token_elem_str();
-
         //validate variable names
         //validate function names
         //validate operator names
