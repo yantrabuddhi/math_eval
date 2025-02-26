@@ -31,7 +31,7 @@ namespace meval {
                          const std::shared_ptr<var_map>& vars,
                          const std::shared_ptr<func_map>& funcs,
                          const std::shared_ptr<operator_map>& ops,
-                         double epsilon)
+                         const double epsilon)
         : m_expr("("+std::string(expr)+")"),
           m_vars(vars),
           m_funcs(funcs),
