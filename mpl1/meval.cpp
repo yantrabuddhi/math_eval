@@ -40,6 +40,12 @@ namespace meval {
         //validate function names
         //validate operator names
         m_expr = "("+m_expr+")";
+        std::string st{};
+        for (const auto& c : m_expr) {
+            if (c != ' ')
+                st+=c;
+        }
+        m_expr = st;
         to_postfix();
     }
 

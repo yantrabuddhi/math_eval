@@ -66,7 +66,7 @@ namespace meval {
         [[nodiscard]] double eval() const;
         [[nodiscard]] token_type get_token_type(std::string_view token) const;
         [[nodiscard]] double get_epsilon() const noexcept{return m_epsilon;}
-        [[nodiscard]] std::string_view get_expr() const noexcept{return m_expr;}
+        [[nodiscard]] std::string get_expr() const noexcept{return m_expr;}
     private:
         enum class token_element_type {
             digit,
