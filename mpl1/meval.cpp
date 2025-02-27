@@ -26,12 +26,12 @@ namespace meval {
     };
     const std::pair<char, char> math_expr::bracket = {'(', ')'};
 
-    math_expr::math_expr(std::string_view expr,
+    math_expr::math_expr(const std::string& expr,
                          const std::shared_ptr<var_map>& vars,
                          const std::shared_ptr<func_map>& funcs,
                          const std::shared_ptr<operator_map>& ops,
                          const double epsilon)
-        : m_expr("("+std::string(expr)+")"),
+        : m_expr(expr),
           m_vars(vars),
           m_funcs(funcs),
           m_ops(ops),
@@ -39,6 +39,7 @@ namespace meval {
         //validate variable names
         //validate function names
         //validate operator names
+        m_expr = "("+m_expr+")";
         to_postfix();
     }
 

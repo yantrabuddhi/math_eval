@@ -57,7 +57,7 @@ namespace meval {
         static const std::vector<char> m_reserved_symbols;
         static const std::pair<char,char> bracket;// = {"(",")"};
 
-        explicit math_expr(std::string_view expr,
+        explicit math_expr(const std::string& expr,
             const std::shared_ptr<var_map>& vars,
             const std::shared_ptr<func_map>& funcs,
             const std::shared_ptr<operator_map>& ops,
@@ -89,7 +89,7 @@ namespace meval {
             std::string_view name;
         };
 
-        std::string_view m_expr;
+        std::string m_expr;
         std::shared_ptr<var_map> m_vars;
         std::shared_ptr<func_map> m_funcs;
         std::shared_ptr<operator_map> m_ops;

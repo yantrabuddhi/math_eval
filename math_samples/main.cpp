@@ -4,7 +4,7 @@
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 int main() {
-    std::string s{"$x*@abs(.1-1)"};
+    std::string s{"($x^2+4)^(1/2)"};
     std::shared_ptr<meval::var_map> vars = std::make_shared<meval::var_map>();
     std::shared_ptr<meval::func_map> funcs = std::make_shared<meval::func_map>();
     std::shared_ptr<meval::operator_map> ops = std::make_shared<meval::operator_map>();
